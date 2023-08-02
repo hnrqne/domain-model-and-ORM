@@ -21,10 +21,10 @@ public class Block {
 	private Integer id;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant start;
+	private Instant startTime;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant end;
+	private Instant endTime;
 	
 	@ManyToOne
 	@JoinColumn(name = "activity_id")
@@ -33,10 +33,11 @@ public class Block {
 	public Block() {
 	}
 
-	public Block(Integer id, Instant start, Instant end) {
+	public Block(Integer id, Instant startTime, Instant endTime, Activity activity) {
 		this.id = id;
-		this.start = start;
-		this.end = end;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.activity = activity;
 	}
 
 	public Integer getId() {
@@ -47,20 +48,28 @@ public class Block {
 		this.id = id;
 	}
 
-	public Instant getStart() {
-		return start;
+	public Instant getStartTime() {
+		return startTime;
 	}
 
-	public void setStart(Instant start) {
-		this.start = start;
+	public void setStartTime(Instant startTime) {
+		this.startTime = startTime;
 	}
 
-	public Instant getEnd() {
-		return end;
+	public Instant getEndTime() {
+		return endTime;
 	}
 
-	public void setEnd(Instant end) {
-		this.end = end;
+	public void setEndTime(Instant endTime) {
+		this.endTime = endTime;
+	}
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 
 	@Override
@@ -82,6 +91,6 @@ public class Block {
 
 	@Override
 	public String toString() {
-		return "Block [id=" + id + ", start=" + start + ", end=" + end + "]";
+		return "Block [id=" + id + ", startTime=" + startTime + ", endTime=" + endTime + ", activity=" + activity + "]";
 	}
 }

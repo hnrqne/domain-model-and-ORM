@@ -36,7 +36,7 @@ public class Activity {
 	private Category category;
 	
 	@OneToMany(mappedBy = "activity")
-	List<Block> blocks = new ArrayList<>();
+	private List<Block> blocks = new ArrayList<>();
 	
 	@ManyToMany(mappedBy = "activities")
 	private Set<Participant> participants = new HashSet<>();
@@ -49,6 +49,19 @@ public class Activity {
 		this.name = name;
 		this.description = description;
 		this.price = price;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public List<Block> getBlocks() {
+		return blocks;
+	}
+
+
+	public Set<Participant> getParticipants() {
+		return participants;
 	}
 
 	public Integer getId() {

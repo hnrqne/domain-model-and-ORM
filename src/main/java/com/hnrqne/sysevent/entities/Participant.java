@@ -21,8 +21,8 @@ public class Participant {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	private Integer name;
-	private Integer email;
+	private String name;
+	private String email;
 	
 	@ManyToMany
 	@JoinTable(name = "tb_participant_activity",
@@ -33,7 +33,7 @@ public class Participant {
 	public Participant() {
 	}
 
-	public Participant(Integer id, Integer name, Integer email) {
+	public Participant(Integer id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -47,19 +47,19 @@ public class Participant {
 		this.id = id;
 	}
 
-	public Integer getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(Integer name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Integer getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(Integer email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
